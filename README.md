@@ -1,21 +1,11 @@
-
-<a id='HDF5Logging.jl'></a>
-
-<a id='HDF5Logging.jl-1'></a>
-
 # HDF5Logging.jl
 
+![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg) [![build](https://github.com/tpapp/HDF5Logging.jl/workflows/CI/badge.svg)](https://github.com/tpapp/HDF5Logging.jl/actions?query=workflow%3ACI) [![codecov.io](http://codecov.io/github/tpapp/HDF5Logging.jl/coverage.svg?branch=master)](http://codecov.io/github/tpapp/HDF5Logging.jl?branch=master)
 
-![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg) [![build](https://github.com/tpapp/HDF5Logging.jl/workflows/CI/badge.svg)](https://github.com/tpapp/HDF5Logging.jl/actions?query=workflow%3ACI) [![codecov.io](http://codecov.io/github/tpapp/HDF5Logging.jl/coverage.svg?branch=master)](http://codecov.io/github/tpapp/HDF5Logging.jl?branch=master) <!– Documentation – uncomment or delete as needed –> <!– [![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://tpapp.github.io/HDF5Logging.jl/stable) [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)](https://tpapp.github.io/HDF5Logging.jl/dev) –>
-
-<a id='HDF5Logging.hdf5_logger' href='#HDF5Logging.hdf5_logger'>#</a>
 **`HDF5Logging.hdf5_logger`** &mdash; *Function*.
-
-
 
 ```julia
 hdf5_logger(filename; group_path)
-
 ```
 
 Create a logger that write log messages into the HDF5 file `filename` within the given `group_path` (defaults to `"log"`).
@@ -55,14 +45,9 @@ julia> logger[1]
 
 1. The HDF5 file can contain other data, ideally in other groups than `group_path`.
 2. Contiguity of message indexes is not checked. This package will create them in order,
-
 starting at 1, but if you delete some with another tool then `getindex` will just return `nothing`.
-
 3. A lock is used, so a shared instance should be thread-safe. That said, **if you open the
-
 same file with another `hdf5_logger`, consequences are undefined.**
-
 4. The HDF5 file is not kept open when not accessed. This is slower, but should help ensure
-
 robust operation.
 
