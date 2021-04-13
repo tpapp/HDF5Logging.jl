@@ -1,0 +1,6 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+HDF5Logging = "e4e011d9-2e12-448d-a9bd-158b233f66f6"
+
+[compat]
+Documenter = "~0.26"

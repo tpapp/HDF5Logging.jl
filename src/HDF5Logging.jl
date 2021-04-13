@@ -72,7 +72,7 @@ fields:
 
 # Example
 
-```jldoctest
+```jldoctest; filter = [r"group = .*", r"file \\S*"]
 julia> using HDF5Logging, Logging
 
 julia> logger = hdf5_logger(tempname())
